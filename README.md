@@ -1,2 +1,1 @@
-# ATM-Simulator-Java atm
-hello world
+# ATM-Simulator-Java
