@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class Screen implements ActionListener{
 	
@@ -15,14 +16,15 @@ public class Screen implements ActionListener{
 	JPanel panel;
 	JLabel label,displayLabel;
 	JButton sevenbtn,eightbtn,ninebtn,fourbtn,fivebtn,sixbtn,onebtn,twobtn,threebtn,zerobtn;
-	JButton clearbtn,endbtn;
+	JButton enterbtn,clearbtn,endbtn;
+	
+	boolean isenterclicked;
+	String pinNumber;
+	
+	
 	public Screen() {
 		
-		//panel=new JPanel();
-		//panel.setBounds(100,40, 800, 100);
-		
-		
-		//HEADER
+	    //HEADER
 		label=new JLabel();
 		label.setHorizontalAlignment(JLabel.CENTER);
 		label.setVerticalAlignment(JLabel.TOP);
@@ -36,9 +38,13 @@ public class Screen implements ActionListener{
 		displayLabel=new JLabel();
 		displayLabel.setBounds(50, 100,260,50);
 		displayLabel.setBackground(Color.white);
+		displayLabel.setFont(new Font("Arial", Font.PLAIN, 40));
 		displayLabel.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+		displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		
 		displayLabel.setOpaque(true);
 		
+		displayLabel.setText("****");
 		//BUTTONS
 		sevenbtn=new JButton("7");
 		sevenbtn.setBounds(50, 200, 60, 50);
@@ -74,14 +80,24 @@ public class Screen implements ActionListener{
 		zerobtn.setBounds(150, 440, 60, 50);
 		zerobtn.setFont(new Font("Arial", Font.PLAIN, 40));
 		
+		enterbtn=new JButton("Enter");
+		enterbtn.setBounds(440, 200, 190, 50);
+		enterbtn.setFont(new Font("Arial", Font.PLAIN, 30));
+		enterbtn.setBackground(Color.blue);
+		enterbtn.setForeground(Color.white);
+		enterbtn.addActionListener(this);
+		
 		clearbtn=new JButton("Clear");
-		clearbtn.setBounds(440, 200, 190, 50);
-		clearbtn.setFont(new Font("Arial", Font.PLAIN, 40));
+		clearbtn.setBounds(440, 280, 190, 50);
+		clearbtn.setFont(new Font("Arial", Font.PLAIN, 30));
 		clearbtn.setBackground(Color.green);
+		clearbtn.setForeground(Color.white);
+		
 		endbtn=new JButton("End");
-		endbtn.setBounds(440, 280, 190, 50);
-		endbtn.setFont(new Font("Arial", Font.PLAIN, 40));
+		endbtn.setBounds(440, 360, 190, 50);
+		endbtn.setFont(new Font("Arial", Font.PLAIN, 30));
 		endbtn.setBackground(Color.RED);
+		endbtn.setForeground(Color.white);
 		
 		
 		jf=new JFrame("ATM");
@@ -103,6 +119,7 @@ public class Screen implements ActionListener{
 		jf.add(threebtn);	
 		jf.add(zerobtn);
 		
+		jf.add(enterbtn);
 		jf.add(clearbtn);
 		jf.add(endbtn);
 		
@@ -117,6 +134,19 @@ public class Screen implements ActionListener{
 
 	
 	public void actionPerformed(ActionEvent e) {
+		
+		
+		
+		if(e.getSource()==enterbtn) {
+			pinNumber=displayLabel.getText();
+			
+			if(pinNumber.equals("****")) {
+				SecondScreen secondscreen=new SecondScreen();
+				secondscreen.setVisible(true);
+				
+			}
+			
+		}
 		
 	}
 	
