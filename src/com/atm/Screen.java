@@ -1,7 +1,8 @@
 
 
 	import java.awt.*;
-        import java.awt.event.ActionEvent;
+
+   import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 	import javax.swing.*;
 	    
@@ -14,7 +15,9 @@
 		   JButton a1,a2,a3;
 		   String pinNumber;
 		   
-		   JPanel secondpanel;
+		   JPanel secondpanel,secondpanel1,secondpanel2,secondpanelbtn;
+		   JButton b1,b2,b3,b4;
+		   JLabel secondpaneltextlabel,secondpaneltextlabel2 ;
 		   
 		   public Screen() {
 			   
@@ -182,7 +185,54 @@
 			  
 			   	secondpanel =new JPanel();
 			   	secondpanel.setLayout(new BorderLayout());
-			   	secondpanel.setBackground(Color.green);
+			   	
+			   	
+			   	secondpanel1=new JPanel();
+			   	secondpanel1.setLayout(new BorderLayout());
+			   	secondpanel1.setBackground(Color.black);
+			   	
+			   	//HEADING
+			   	secondpaneltextlabel =new JLabel("  Click Choise");
+			   	secondpaneltextlabel.setBackground(Color.black);
+			 	secondpaneltextlabel.setFont(new Font("Arial", Font.BOLD, 30));
+			 	secondpaneltextlabel.setForeground(Color.white);
+			 	
+			   	secondpanel1.add(secondpaneltextlabel,"North");
+			   
+				 //WITHDRAWAL,BALENCE BUTTONS
+			   	secondpanel2=new JPanel();
+			   	secondpanel2.setLayout(new BorderLayout());
+			   	
+			   	
+			   	secondpanelbtn = new JPanel();
+			   	secondpanelbtn.setLayout( new GridLayout(4, 1) );
+			   	secondpanelbtn.setBackground(Color.black);
+			   	 
+			   	b1  = new JButton("WITHDRAWAL");
+			   	b1.setBackground(Color.blue);
+			   	b1.setForeground(Color.white);
+			   	b1.setFont(new Font("Arial", Font.BOLD, 12));
+			   	b1.addActionListener(this);
+			   	
+				
+			 	b2  = new JButton("BALENCE INQUARY");
+			 	b2.setBackground(Color.green);
+			   	b2.setForeground(Color.white);
+			   	b2.setFont(new Font("Arial", Font.BOLD, 12));
+			   	
+
+			 	b3  = new JButton("");
+			 	b3.setBackground(Color.black);
+			 	b4  = new JButton("");
+			 	b4.setBackground(Color.black);
+			
+			   	secondpanelbtn.add(b1);
+			   	secondpanelbtn.add(b2);
+			   	
+			   	secondpanel2.add(secondpanelbtn);
+			   	
+				secondpanel.add(secondpanel1, "Center");
+			   	secondpanel.add(secondpanel2, "East");
 			   	
 			   	jf.getContentPane().add(secondpanel,"Center");
 			 	
@@ -192,7 +242,7 @@
 	      public static void main(String[] args){
 	    	  
 	  
-	    	  new Atm();
+	    	  new Screen();
 	     
 	      }
 
